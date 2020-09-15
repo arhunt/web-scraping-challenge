@@ -54,7 +54,7 @@ def scrape():
     facts_table = tables[0]
     facts_table = facts_table.rename(columns={0:"About",1:"Mars"})
 
-    facts_html = facts_table.to_html(index=False)
+    facts_html = facts_table.to_html(index=False, classes="table table-bordered table-striped")
     facts_html = facts_html.replace("text-align: right;","text-align: center;")
 
     # Mars Hemipsheres
