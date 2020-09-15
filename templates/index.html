@@ -10,24 +10,40 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <p>Let's find out what we're getting into!</p>
         <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Here goes!</a></p>
       </div>
-    <h2>What's NASA doing on Mars lately?</h2>
+    <div class="col-md-12">
+    <h1>What's NASA doing on Mars lately?</h1>
     <h3>{{ show.news_title }}</h3>
     <h4>{{ show.news_teaser }}</h4>
+    </div>
+    <div class="col-md-7">
     <h2>What does Mars look like today?</h2>
-    <img src = "{{ show.featured }}" alt="Featured image">
+    <img src = "{{ show.featured }}" alt="Featured image" width="100%">
+    </div>
+    <div class="col-md-4 offset-md-1">
     <h2>What do you know?</h2>
-    <div class="table-responsive">
+    <div class="table">
         {{ show.facts_table|safe }}
     </div>
+    </div>
+    <div class="col-md-12">
+    <h2>Where are you landing?  Pick a hemisphere:</h2>
+    </div>
     {% for each in show.hemispheres %}
-    <img src = "{{ each.image }}">
-    <h4>{{ each.hemi }}</h4>
+    <div class="col-md-6 col-lg-3">
+      <div class="card">
+        <div class="card_body text-center">
+          <h4 class="card_title">{{ each.hemi }}</h4>
+          <img src = "{{ each.image }}" width="100%">
+        </div>
+      </div>
+    </div>
     {% endfor %}
     </div>
 
